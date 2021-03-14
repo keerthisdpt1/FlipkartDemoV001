@@ -1,6 +1,11 @@
 package com.Flipkart.pageObjects;
 
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -13,6 +18,7 @@ public class LoginPage {
 	
 	public LoginPage(WebDriver driver)
 	{
+		System.out.println("keerthi at LoginPage");
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -45,7 +51,24 @@ public class LoginPage {
 	@FindBy(xpath="//*[@class='_2KpZ6l _2HKlqd _3AWRsL']")
 	@CacheLookup
 	WebElement btnLogin1;
-		
+	
+	
+	@FindBy(xpath="//*[@placeholder='Search for products, brands and more']")
+	@CacheLookup
+	WebElement txtSearch;
+	
+	@FindBy(xpath="//*[@class='L0Z3Pu']")
+	@CacheLookup
+	WebElement btnSearch;
+	
+	@FindBy(xpath="//*[@class='KK-o3G']")
+	@CacheLookup
+	WebElement btnCart;
+
+	@FindBy(xpath="//*[@class='_2KpZ6l _2ObVJD _3AWRsL']")
+	@CacheLookup
+	WebElement btnPlaceOrder;
+	
 	public void setUserName(String uname)
 	{
 		txtUserName.sendKeys(uname);
@@ -74,6 +97,28 @@ public class LoginPage {
 	public void clickLogin()
 	{
 		btnLogin1.click();
+	}
+	
+	public void setSearch(String searchMe) throws InterruptedException
+	{
+		txtSearch.sendKeys(searchMe);
+		
+	}
+	public void clickSearch()
+	{
+		System.out.println("keerthi at click search");
+		btnSearch.click();
+	}
+	
+	public void clickCart()
+	{
+		System.out.println("keerthi at click search");
+		btnCart.click();
+	}
+	public void clickPlaceOrder()
+	{
+		System.out.println("keerthi at click search");
+		btnPlaceOrder.click();
 	}
 	
 }

@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
 import com.Flipkart.utilities.ReadConfig;
 
 
-public class BaseClass {
+public class BaseClass{
 
 	public static WebDriver driver;
 	public static Logger logger;
@@ -28,6 +28,7 @@ public class BaseClass {
 		{
 			System.setProperty("webdriver.chrome.driver", p1.getProperty("chromepath"));
 			driver = new ChromeDriver();
+			driver.manage().window().maximize();
 		}
 		else if(brow.equals("IE"))
 		{
@@ -44,7 +45,7 @@ public class BaseClass {
 	@AfterClass
 	public void tearDown() 
 	{
-		driver.quit(); 
+		//driver.quit(); 
 	}
 			
 	
